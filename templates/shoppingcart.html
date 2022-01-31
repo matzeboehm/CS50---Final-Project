@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Shopping Cart
+{% endblock %}
+
+{% block main %}
+    <h3>The following recipes are in your cookbook. If you want to have further information about them, just click on the name of each recipe.</h3>
+    <br>
+
+    {% if names %}
+        <form action="/shoppingcart" method="post">
+            {% for name in names %}
+                <input type="checkbox" name=name value="{{ name[1] }}">
+                <label for="{{ name[1] }}"><a href="receipt?q={{ name[0] }}" target="_blank" style="color: white">{{ name[1] }}</a></label><br>
+            {% endfor %}
+
+            <input type="submit" value="Submit">
+        </form>
+    {% endif %}
+
+{% endblock %}
+
+

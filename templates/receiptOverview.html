@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Receipt Overview
+{% endblock %}
+
+{% block main %}
+
+<h4><p style="text-align:center"><a href="/generateReceipt" style="color: white">Click here to add a recipe to the cookbook.</a></p></h4>
+<br><br>
+
+    {% if receipts_export %}
+        <table style="width:100%">
+        <colgroup>
+            <col span="1" style="width: 50%;">
+            <col span="1" style="width: 30%;">
+            <col span="1" style="width: 20%;">
+        </colgroup>
+
+        <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Cooking Time</th>
+            <th>Preview</th>
+        </tr>
+        {% for rows in receipts_export %}
+            <tr>
+                <td><a href="receipt?q={{ rows[0] }}" style="color: white">{{ rows[1] }}</a> </td> <!-- link to every html -->
+                <td>{{ rows[2] }} min</td> <!-- Cooking time of each food -->
+                <td><img src="static/pictures/{{ rows[0] }}.jpg" style="max-width:100%;"></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

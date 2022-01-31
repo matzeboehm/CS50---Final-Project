@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add a Recipe to the Cookbook
+{% endblock %}
+
+{% block main %}
+
+    <form action="/generateReceipt" method="post" enctype="multipart/form-data">
+        <h3>Name</h3>
+        <div class="form-group">
+            <input name="name" type="text" autocomplete="off">
+        </div>
+        <br><br>
+
+        <h3>Upload a Picture</h3>
+        <div class="form-group">
+            <input name="picture" type="file" accept="image/*;capture=camera">
+        </div>
+        <br><br>
+
+        <h3>Ingredients</h3>
+        <div class="form-group">
+            <textarea name="ingredients" rows="5" cols="30">
+- Write the needed ingredients here &#10;- &#10;- &#10;-
+            </textarea>
+        </div>
+        <br><br>
+
+        <h3>Instructions</h3>
+        <div class="form-group">
+            <textarea name="instructions" rows="5" cols="30">
+- Write your instructions here &#10;- &#10;- &#10;-
+            </textarea>
+        </div>
+        <br><br>
+
+        <h3>Estimated Cooking Time</h3>
+        <div class="form-group">
+            <input name="cookingTime" type="number" min="0" step="1"> min
+        </div>
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+{% endblock %}
+
+<script>
+    var myInput = document.getElementById('myFileInput');
+
+    function sendPic() {
+    var file = myInput.files[0];
+    }
+
+    myInput.addEventListener('change', sendPic, false);
+</script>

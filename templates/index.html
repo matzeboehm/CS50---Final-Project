@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block main %}
+
+    <h2><p style="text-align:center">Hello, {{ name }}. <br> Welcome to your Cookbook!</p></h2>
+
+    <br>
+
+    <h4>
+        <p style="text-align:center">Have a look at the recipe of the day:
+        <br>
+            <a href="receipt?q={{ recipe_id }}" style="color: white">{{ name_recipe }}</a>
+        </p>
+    </h4>
+
+
+{% endblock %}

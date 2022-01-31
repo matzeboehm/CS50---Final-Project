@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Shopping List
+{% endblock %}
+
+{% block main %}
+
+    {% if ingredientList %}
+    <h3>Shopping List</h3>
+    <br><br>
+
+        <ul>
+            {% for row in ingredientList %}
+                <li>{{ row[0] }}: {{ row[1] }} g</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}
+
+

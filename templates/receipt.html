@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Receipt
+{% endblock %}
+
+{% block main %}
+
+    <h2>{{ name }}</h2>
+
+    {% if picture %}
+        <img src="{{ picture }}" style="max-width:50%;">
+        <br><br>
+    {% endif %}
+
+    {% if ingredients %}
+        <h3>Ingredients</h3>
+        <ul>
+        {% for row in ingredients %}
+            <li>{{ row }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if instructions %}
+        <h3>Instructions</h3>
+        <ol>
+        {% for row in instructions %}
+            <li>{{ row }}</li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+{% endblock %}
+
+
